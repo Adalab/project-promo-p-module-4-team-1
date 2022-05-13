@@ -1,0 +1,121 @@
+@import "./core/variables";
+
+.container__cards {
+    width: 240px;
+    margin: 20px 0 0;
+    padding-top: 21px;
+    border-radius: 2px;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+    background-color: $color-white-two;
+}
+
+.card__text {
+    position: relative;
+}
+
+.cards__name {
+    margin: 0 14px 4px 15px;
+    font-family: $font-card;
+    font-size: 18px;
+    font-weight: bold;
+    color: $color-dark-green-blue;
+}
+
+.cards__job {
+    margin: 4px 52px 10px 15px;
+    font-family: $font-card;
+    font-size: 1rem;
+    color: $color-gunmetal;
+}
+
+.rectangle {
+    width: 5px;
+    height: 100%;
+    background-color: $color-dirty-blue;
+    position: absolute;
+    top: 0px;
+}
+
+.cards__img {
+    width: 240px;
+    height: 200px;
+    background: url('../images/foto-de-perfil-en-linkedin.jpeg') center center no-repeat;
+    background-size: cover;
+}
+
+.cards__logos {
+    display: flex;
+    padding: 10px 0px 12px 10px;
+}
+
+.cards__logos--redes {
+    width: 32px;
+    height: 32px;
+    margin: 0 0 0 10px;
+    border-radius: 16px;
+    border: solid 2px $color-hospital-green;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links {
+    font-size: 18px;
+    color: $color-dark-green-blue;
+}
+
+.palette-1 {
+    .cards__name {
+        color: $color-dark-green-blue;
+    }
+
+    .cards__logos--redes {
+        border-color: $color-hospital-green;
+    }
+
+    .links {
+        color: $color-dark-green-blue;
+    }
+
+    .rectangle {
+        background-color: $color-dirty-blue;
+    }
+}
+
+.palette-2 {
+    .cards__name {
+        color: $color-dried-blood;
+    }
+
+    .cards__logos--redes {
+        border-color: $color-tomato;
+    }
+
+    .links {
+        color: $color-dried-blood;
+    }
+
+    .rectangle {
+        background-color: $color-rusty-red;
+    }
+}
+
+.palette-3 {
+    .cards__name {
+        color: $color-slate;
+    }
+
+    .cards__logos--redes {
+        border-color: $color-light-grey-blue;
+    }
+
+    .links {
+        color: $color-slate;
+    }
+
+    .rectangle {
+        background-color: $color-faded-orange;
+    }
+ }

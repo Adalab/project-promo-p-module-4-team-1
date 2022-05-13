@@ -1,0 +1,111 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 0px 50px;
+  align-items: center;
+  //background-color: $color-white-four;
+  background-image: url(../../images/fondo-5.jpg);
+  background-size: cover;
+  justify-content: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    &--image {
+      width: 350px;
+      margin-bottom: 35px;
+      width: 250px;
+      height: 63px;
+      @include tablet() {
+        margin: 150px 35px 35px 35px;
+        width: 419px;
+        height: 105px;
+      }
+    }
+    &--title {
+      color: $color-dull-orange;
+      font-size: 19.2px;
+      text-align: center;
+      font-family: $font-title;
+      @include tablet() {
+        font-size: 24px;
+      }
+    }
+
+    &--description {
+      color: $color-dark-green-blue;
+      text-align: center;
+      font-family: $font-text;
+      font-size: 0.8em;
+      width: 264px;
+      @include tablet() {
+        font-size: 16px;
+        width: 331px;
+      }
+    }
+    &--icons {
+      //border-radius: 4px;
+      border-radius: 80px 20px;
+      //border: 1.6px solid $color-dull-orange-opacity;
+      background-color: $color-line;
+      height: 80px;
+      width: 268px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      //color: $color-dull-orange;
+      color: $color-dirty-blue;
+      font-family: $font-text;
+      font-size: 12.8px;
+      @include tablet() {
+        width: 400px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__btn {
+    background-color: $color-dirty-blue;
+    color: $color-white-two;
+    border-radius: 100px;
+    width: 129px;
+    height: 42px;
+    margin: 20px 0px;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: none;
+
+    @include tablet() {
+      margin-top: 150px;
+    }
+  }
+
+  &__btn:hover {
+    //background-color: $color-dull-orange;
+    background-color: $color-faded-orange;
+    transition: transform 1s;
+  }
+}
+
+.fa__icon {
+  font-size: 22.4px;
+  @include tablet() {
+    font-size: 28px;
+  }
+}
+
+a {
+  font-family: $font-text;
+}
+.icons__title {
+  color: $color-gunmetal;
+}
+
+.icon__font {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}

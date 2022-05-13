@@ -1,0 +1,76 @@
+.form {
+  &__label {
+    margin-left: 39px;
+    font-family: $font-text;
+    font-size: 14px;
+    line-height: normal;
+    color: $color-gunmetal;
+  }
+  &__radios {
+    display: flex;
+  }
+  &__radio {
+    margin-bottom: 25px;
+    display: flex;
+    margin-right: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-clip: content-box;
+    border: 1px solid $color-light-grey-blue;
+    background-color: $color-white-two;
+    border-radius: 50%;
+  }
+  &__radio:checked {
+    background-color: $color-white-two;
+    border: 5px solid $color-radio-button;
+  }
+  &__values {
+    // margin-top: -6px;
+    display: flex;
+    flex-direction: row;
+  }
+  &__color {
+    width: 30px;
+    height: 25px;
+
+    &--1 {
+      background-color: $color-dark-green-blue;
+    }
+    &--2 {
+      background-color: $color-dirty-blue;
+    }
+    &--3 {
+      background-color: $color-hospital-green;
+    }
+    &--4 {
+      background-color: $color-dried-blood;
+    }
+    &--5 {
+      background-color: $color-rusty-red;
+    }
+    &--6 {
+      background-color: $color-tomato;
+    }
+    &--7 {
+      background-color: $color-slate;
+    }
+    &--8 {
+      background-color: $color-faded-orange;
+    }
+    &--9 {
+      background-color: $color-light-grey-blue;
+    }
+  }
+}
+
+// .form__content.collapsed{
+//   display: none;
+// }
+
+
+  
+

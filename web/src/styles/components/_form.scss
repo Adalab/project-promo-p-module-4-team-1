@@ -1,0 +1,41 @@
+.form {
+  border: none;
+  border-bottom: 1px solid $color-line;
+  width: 100%;
+  padding-bottom: 20px;
+  
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__legend {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+
+    &__icon1 {
+      width: 21px;
+      height: 18px;
+      margin-right: 10px;
+      font-size: 18px;
+      color: $color-dull-orange;
+    }
+    &__text {
+      font-size: 18px;
+      font-weight: bold;
+      color: $color-gunmetal;
+      font-family: $font-text;
+    }
+
+    &__icon2 {
+      width: 16px;
+      height: 18px;
+      color: $color-gunmetal;
+    }
+  }
+}

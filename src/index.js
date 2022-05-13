@@ -3,6 +3,7 @@
 // Importamos los dos módulos de NPM necesarios para trabajar
 const express = require('express');
 const cors = require('cors');
+import { v4 as uuidv4 } from 'uuid';
 
 // Creamos el servidor
 const server = express();
@@ -17,10 +18,21 @@ server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
+const savedCards = [];
+
 // Escribimos los endpoints que queramos
-server.get('/users', (req, res) => {
-  const response = {
-    users: [{ name: 'Sofía' }, { name: 'María' }],
+server.post('/card', (req, res) => {
+  const newCard = {
+    ...req.body,
+    id: uuidv4(),
   };
+
+  savedCards.push(newCard);
+
+  const responseSuccess = {
+    success: true,
+    cardURL: `http://localhost/4000/card/${newCard.id}`,
+  };
+
   res.json(response);
 });
