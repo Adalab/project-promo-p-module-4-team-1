@@ -22,17 +22,34 @@ const savedCards = [];
 
 // Escribimos los endpoints que queramos
 server.post('/card', (req, res) => {
-  const newCard = {
-    ...req.body,
-    id: uuidv4(),
-  };
+  if (
+    req.body.name !== '' &&
+    req.body.job !== '' &&
+    req.body.pallete !== '' &&
+    req.body.email !== '' &&
+    req.body.phone !== '' &&
+    req.body.linkedin !== '' &&
+    req.body.github !== '' &&
+    req.body.photo !== ''
+  ) {
+    console.log('están rellenos');
+    const newCard = {
+      ...req.body,
+      id: uuidv4(),
+    };
+    savedCards.push(newCard);
+    const responseSuccess = {
+      success: true,
+      cardURL: `http://localhost/4000/card/${newCard.id}`,
+    };
 
-  savedCards.push(newCard);
-
-  const responseSuccess = {
-    success: true,
-    cardURL: `http://localhost/4000/card/${newCard.id}`,
-  };
-
-  res.json(responseSuccess);
+    res.json(responseSuccess);
+  } else {
+    console.log('no están rellenos');
+    const responseError = {
+      success: false,
+      cardURL: 'Rellena todos los campos',
+    };
+    res.json(responseError);
+  }
 });

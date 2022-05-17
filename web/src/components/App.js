@@ -3,6 +3,8 @@ import '../styles/main.scss';
 import { useState } from 'react';
 import dataApi from '../services/api';
 import Card from './Card';
+import { Routes, Route } from 'react-router-dom';
+import Landing from './Landing';
 
 function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
@@ -22,6 +24,11 @@ function App() {
     photo: 'data:image/png;base64,2342ba...',
   });
   const [apiUrl, setApiUrl] = useState({});
+  const [avatar, setAvatar] = useState('');
+
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
 
   const handleClickCreate = () => {
     console.log('está entrando');
@@ -108,20 +115,33 @@ function App() {
 
   // RETURN DE APP
   return (
-    <Card
-      dataForm={dataForm}
-      collapseDesign={collapseDesign}
-      collapseFill={collapseFill}
-      collapseShare={collapseShare}
-      apiUrl={apiUrl}
-      rotateDesign={rotateDesign}
-      rotateFill={rotateFill}
-      rotateShare={rotateShare}
-      handleReset={handleReset}
-      handleCollapse={handleCollapse}
-      handleChange={handleChange}
-      handleClickCreate={handleClickCreate}
-    />
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route
+          path="/card"
+          element={
+            <Card
+              dataForm={dataForm}
+              collapseDesign={collapseDesign}
+              collapseFill={collapseFill}
+              collapseShare={collapseShare}
+              apiUrl={apiUrl}
+              rotateDesign={rotateDesign}
+              rotateFill={rotateFill}
+              rotateShare={rotateShare}
+              handleReset={handleReset}
+              handleCollapse={handleCollapse}
+              handleChange={handleChange}
+              handleClickCreate={handleClickCreate}
+              avatar={avatar}
+              updateAvatar={updateAvatar}
+            />
+          }
+        />
+      </Routes>
+      {/**/}
+    </>
   );
 }
 

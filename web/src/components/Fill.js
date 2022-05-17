@@ -1,3 +1,5 @@
+import GetAvatar from './GetAvatar';
+
 const Fill = (props) => {
   return (
     <fieldset className="form">
@@ -42,7 +44,9 @@ const Fill = (props) => {
           <label htmlFor="title">Imagen de perfil</label>
           <div className="form__items-image">
             <div className="action">
-              <label className="action__upload-btn" htmlFor="img-selector">
+            <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
+
+              {/* <label className="action__upload-btn" htmlFor="img-selector">
                 Añadir imagen
               </label>
               <input
@@ -50,11 +54,12 @@ const Fill = (props) => {
                 name=""
                 id="img-selector"
                 className="action__hiddenField js__profile-upload-btn"
-              />
+              />*/}
             </div>
-            <div className="profile">
+            
+            {/* <div className="profile">
               <div className="profile__image js__profile-image"></div>
-            </div>
+            </div>  */}
           </div>
         </div>
         <div className="form__items">

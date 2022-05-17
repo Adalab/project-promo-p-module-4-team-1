@@ -1,4 +1,5 @@
 import '../styles/CardPreview.scss';
+import Profile from './Profile';
 
 const CardPreview = (props) => {
   return (
@@ -12,8 +13,8 @@ const CardPreview = (props) => {
         </p>
         <div className="rectangle"></div>
       </div>
-
-      <div className="cards__img js__profile-preview"></div>
+      <Profile avatar={props.avatar} />
+      {/* <div className="cards__img js__profile-preview"> </div> */}
 
       <div className="cards__logos">
         <a

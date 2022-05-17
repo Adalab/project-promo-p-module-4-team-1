@@ -41,7 +41,8 @@ const Card = (props) => {
               <span className="cards__reset--text">Reset</span>
             </button>
             {/* COMPONENTE */}
-            <CardPreview data={props.dataForm} />
+            <CardPreview data={props.dataForm} avatar={props.avatar}/>
+
           </div>
         </section>
 
@@ -61,6 +62,7 @@ const Card = (props) => {
             dataForm={props.dataForm}
             collapseFill={props.collapseFill}
             rotateFill={props.rotateFill}
+            avatar={props.avatar} updateAvatar={props.updateAvatar}
           />
 
           {/* COMPONENTE */}

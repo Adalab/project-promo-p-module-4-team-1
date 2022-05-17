@@ -1,14 +1,16 @@
 import logo from '../images/logo.svg';
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   return (
     <header className="header">
-      <a href="#">
+      <Link to={'/'}>
         <img
           className="header_img"
           src={logo}
           alt="Logo Awesome Profile Cards"
         />
-      </a>
+      </Link>
     </header>
   );
 };
