@@ -7,6 +7,8 @@ const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 // Creamos el servidor
 const server = express();
+//importamos ejs
+server.set('view engine', 'ejs');
 
 // Configuramos el servidor
 server.use(cors());
@@ -19,6 +21,10 @@ server.listen(serverPort, () => {
 });
 
 const savedCards = [];
+
+// servidor de estaticos
+const pathServerPublicStyles = './public/styles';
+server.use(express.static(pathServerPublicStyles));
 
 // Escribimos los endpoints que queramos
 server.post('/card', (req, res) => {
@@ -40,7 +46,7 @@ server.post('/card', (req, res) => {
     savedCards.push(newCard);
     const responseSuccess = {
       success: true,
-      cardURL: `http://localhost/4000/card/${newCard.id}`,
+      cardURL: `http://localhost:4000/card/${newCard.id}`,
     };
 
     res.json(responseSuccess);
@@ -52,4 +58,12 @@ server.post('/card', (req, res) => {
     };
     res.json(responseError);
   }
+});
+
+server.get('/card/:id', (req, res) => {
+  console.log(req.params.id);
+  const dataCardPreview = savedCards.find((item) => item.id === req.params.id);
+
+  res.render('cardPreview', dataCardPreview);
+  console.log(dataCardPreview);
 });

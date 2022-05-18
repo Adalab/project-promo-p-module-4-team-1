@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/main.css" />
+    <title>Card Preview</title>
+  </head>
+
+  <body>
+    <section class="preview palette-">
+      <div>
+        <article class="container__cards">
+          <div class="card__text">
+            <h2 class="cards__name js__preview_name"><%= name %></h2>
+            <p class="cards__job js__preview_job"><%= job %></p>
+            <div class="rectangle"></div>
+          </div>
+          <div class="profile">
+            <div
+              class="profile__avatar"
+              style="background-image: url('<%= photo %>')"
+            ></div>
+          </div>
+          <div class="cards__logos">
+            <a
+              class="cards__logos--redes js__preview_phone"
+              href="tel:<%= phone %>"
+              ><i class="fa-solid fa-mobile-screen-button links"></i></a
+            ><a
+              class="cards__logos--redes js__preview_email"
+              href="mailto:<%= email %>"
+              ><i class="fa-regular fa-envelope links"></i></a
+            ><a
+              class="cards__logos--redes js__preview_linkedin"
+              href="<%= linkedin %>"
+              target="_blank"
+              rel="noreferrer"
+              ><i class="fa-brands fa-linkedin-in links"></i></a
+            ><a
+              class="cards__logos--redes js__preview_github"
+              href="<%= github %>"
+              target="_blank"
+              rel="noreferrer"
+              ><i class="fa-brands fa-github-alt links"></i
+            ></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
