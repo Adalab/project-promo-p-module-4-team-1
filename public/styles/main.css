@@ -297,16 +297,16 @@ a {
   flex-direction: column;
 }
 .preview {
-  background-image: url("../images/defaultAvatar.png");
+  background-image: url('../images/fondo-5.jpg');
   background-size: cover;
-  height: 457px;
+  min-height: 457px;
   justify-content: center;
   width: 100%;
 }
 @media (min-width: 768px) {
   .preview {
     border-radius: 6px;
-    height: 826px;
+    min-height: 826px;
     width: 50%;
   }
 }
