@@ -12,7 +12,7 @@ server.set('view engine', 'ejs');
 
 // Configuramos el servidor
 server.use(cors());
-server.use(express.json());
+server.use(express.json({ limit: '10mb' }));
 
 // Arrancamos el servidor en el puerto 4000
 const serverPort = process.env.PORT || 4000;
@@ -21,10 +21,6 @@ server.listen(serverPort, () => {
 });
 
 const savedCards = [];
-
-// servidor de estaticos
-const pathServerPublicStyles = './public/styles';
-server.use(express.static(pathServerPublicStyles));
 
 // Escribimos los endpoints que queramos
 server.post('/card', (req, res) => {
@@ -46,8 +42,11 @@ server.post('/card', (req, res) => {
     savedCards.push(newCard);
     const responseSuccess = {
       success: true,
-      cardURL: `http://localhost:4000/card/${newCard.id}`,
+      cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
     };
+
+    // cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
+    // cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
 
     res.json(responseSuccess);
   } else {
@@ -67,3 +66,10 @@ server.get('/card/:id', (req, res) => {
   res.render('cardPreview', dataCardPreview);
   console.log(dataCardPreview);
 });
+
+// servidor de estaticos
+const pathServerPublic = './public';
+server.use(express.static(pathServerPublic));
+
+const staticServerPath = './src/public-react';
+server.use(express.static(staticServerPath));

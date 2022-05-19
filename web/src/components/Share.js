@@ -33,9 +33,7 @@ const Share = (props) => {
         <div>
           <label className='card__new js__createcard' htmlFor='tarjeta creada'>
             <p>La tarjeta ha sido creada: </p>
-            <a href={`{props.apiUrl.cardURL`}>
-              {props.apiUrl.cardURL || ' url'}
-            </a>
+            <a href={props.apiUrl.cardURL}>{props.apiUrl.cardURL}</a>
           </label>
           <div>
             <a className='card__share js-response' target='_blank'>
