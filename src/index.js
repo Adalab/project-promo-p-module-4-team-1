@@ -22,10 +22,6 @@ server.listen(serverPort, () => {
 
 const savedCards = [];
 
-// servidor de estaticos
-const pathServerPublic = './public';
-server.use(express.static(pathServerPublic));
-
 // Escribimos los endpoints que queramos
 server.post('/card', (req, res) => {
   if (
@@ -67,3 +63,10 @@ server.get('/card/:id', (req, res) => {
   res.render('cardPreview', dataCardPreview);
   console.log(dataCardPreview);
 });
+
+// servidor de estaticos
+const pathServerPublic = './public';
+server.use(express.static(pathServerPublic));
+
+const staticServerPath = './src/public-react';
+server.use(express.static(staticServerPath));
