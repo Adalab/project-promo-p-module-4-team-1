@@ -42,7 +42,7 @@ server.post('/card', (req, res) => {
     savedCards.push(newCard);
     const responseSuccess = {
       success: true,
-      cardURL: `http://localhost:4000/card/${newCard.id}`,
+      cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
     };
 
     res.json(responseSuccess);
