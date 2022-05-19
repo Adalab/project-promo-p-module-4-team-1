@@ -12,7 +12,7 @@ server.set('view engine', 'ejs');
 
 // Configuramos el servidor
 server.use(cors());
-server.use(express.json());
+server.use(express.json({ limit: '10mb' }));
 
 // Arrancamos el servidor en el puerto 4000
 const serverPort = process.env.PORT || 4000;
@@ -23,8 +23,8 @@ server.listen(serverPort, () => {
 const savedCards = [];
 
 // servidor de estaticos
-const pathServerPublicStyles = './public/styles';
-server.use(express.static(pathServerPublicStyles));
+const pathServerPublic = './public';
+server.use(express.static(pathServerPublic));
 
 // Escribimos los endpoints que queramos
 server.post('/card', (req, res) => {
