@@ -50,25 +50,20 @@ server.post('/card', (req, res) => {
     );
     const result = query.run(
       newCard.id,
-      req.body.name,
-      req.body.job,
-      req.body.photo,
-      req.body.phone,
-      req.body.email,
-      req.body.linkedin,
-      req.body.github,
-      req.body.palette
+      newCard.name,
+      newCard.job,
+      newCard.photo,
+      newCard.phone,
+      newCard.email,
+      newCard.linkedin,
+      newCard.github,
+      newCard.palette
     );
-    res.json({
+    console.log(result);
+    const responseSuccess = {
       success: true,
       cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
-    });
-
-    // savedCards.push(newCard);
-    // const responseSuccess = {
-    //   success: true,
-    //   cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
-    // };
+    };
 
     // cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
     // cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
@@ -86,10 +81,10 @@ server.post('/card', (req, res) => {
 
 server.get('/card/:id', (req, res) => {
   console.log(req.params.id);
-  const dataCardPreview = savedCards.find((item) => item.id === req.params.id);
+  const query = db.prepare('SELECT * FROM savedCards WHERE id = ?');
 
-  res.render('cardPreview', dataCardPreview);
-  console.log(dataCardPreview);
+  const result = query.get(req.params.id);
+  res.render('cardPreview', result);
 });
 
 // servidor de estaticos
