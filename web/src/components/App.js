@@ -28,6 +28,7 @@ function App() {
 
   const updateAvatar = (avatar) => {
     setAvatar(avatar);
+    setDataForm({ ...dataForm, photo: avatar });
   };
 
   const handleClickCreate = () => {

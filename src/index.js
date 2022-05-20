@@ -14,6 +14,9 @@ server.set('view engine', 'ejs');
 server.use(cors());
 server.use(express.json({ limit: '10mb' }));
 
+//importamos SQLite
+const Database = require('better-sqlite3');
+
 // Arrancamos el servidor en el puerto 4000
 const serverPort = process.env.PORT || 4000;
 server.listen(serverPort, () => {
@@ -23,11 +26,12 @@ server.listen(serverPort, () => {
 const savedCards = [];
 
 // Escribimos los endpoints que queramos
+const db = Database('./src/db/database.db', { verbose: console.log });
 server.post('/card', (req, res) => {
   if (
     req.body.name !== '' &&
     req.body.job !== '' &&
-    req.body.pallete !== '' &&
+    req.body.palette !== '' &&
     req.body.email !== '' &&
     req.body.phone !== '' &&
     req.body.linkedin !== '' &&
@@ -39,11 +43,32 @@ server.post('/card', (req, res) => {
       ...req.body,
       id: uuidv4(),
     };
-    savedCards.push(newCard);
-    const responseSuccess = {
+    console.log(newCard);
+
+    const query = db.prepare(
+      `INSERT INTO savedcards (id, name, job, photo, phone, email, linkedin, github, palette) VALUES (?, ?, ?, ? ,?, ?, ?, ?, ?)`
+    );
+    const result = query.run(
+      newCard.id,
+      req.body.name,
+      req.body.job,
+      req.body.photo,
+      req.body.phone,
+      req.body.email,
+      req.body.linkedin,
+      req.body.github,
+      req.body.palette
+    );
+    res.json({
       success: true,
-      cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
-    };
+      cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
+    });
+
+    // savedCards.push(newCard);
+    // const responseSuccess = {
+    //   success: true,
+    //   cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
+    // };
 
     // cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
     // cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
