@@ -297,23 +297,23 @@ a {
   flex-direction: column;
 }
 .preview {
-  background-image: url('../images/fondo-5.jpg');
+  background-image: url(../../static/media/fondo-5.a1b3cbea07da944bc4f3.jpg);
   background-size: cover;
-  min-height: 457px;
+  height: 457px;
   justify-content: center;
   width: 100%;
 }
 @media (min-width: 768px) {
   .preview {
     border-radius: 6px;
-    min-height: 826px;
-    width: 50%;
+    height: 100vh;
+    width: 100%;
   }
 }
 @media (min-width: 1200px) {
   .preview {
+    height: 100vh;
     width: 100%;
-    min-height: 100vh;
   }
 }
 .preview__reset {
@@ -614,4 +614,4 @@ a {
   margin-left: 15px;
   width: 50px;
 }
-/*# sourceMappingURL=main.2e02f8d4.css.map*/
+/*# sourceMappingURL=main.8c24c80d.css.map*/
