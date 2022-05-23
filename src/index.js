@@ -62,8 +62,8 @@ server.post('/card', (req, res) => {
     console.log(result);
     const responseSuccess = {
       success: true,
-      // cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
-      cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
+      cardURL: `https://promo-p-module-4-team-1.herokuapp.com/card/${newCard.id}`,
+      // cardURL: `http://localhost:${serverPort}/card/${newCard.id}`,
     };
 
     res.json(responseSuccess);
