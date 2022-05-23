@@ -6,8 +6,8 @@
 //   }).then((response) => response.json());
 // };
 // export default dataApi;
-const url_local = 'http://localhost:4000/card';
-// const url_local = 'https://promo-p-module-4-team-1.herokuapp.com/card';
+//const url_local = 'http://localhost:4000/card';
+const url_local = 'https://promo-p-module-4-team-1.herokuapp.com/card';
 
 const dataApi = (data) => {
   return fetch(url_local, {
