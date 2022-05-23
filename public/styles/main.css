@@ -299,15 +299,15 @@ a {
 .preview {
   background-image: url('../images/fondo-5.jpg');
   background-size: cover;
-  min-height: 457px;
+  height: 100vh;
   justify-content: center;
   width: 100%;
 }
 @media (min-width: 768px) {
   .preview {
     border-radius: 6px;
-    min-height: 826px;
-    width: 50%;
+    height: 100vh;
+    width: 100%;
   }
 }
 @media (min-width: 1200px) {
