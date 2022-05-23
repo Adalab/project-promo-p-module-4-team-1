@@ -297,7 +297,9 @@ a {
   flex-direction: column;
 }
 .preview {
-  background-image: url('../images/fondo-5.jpg');
+  background-image: url(../../images/fondo-fc.webp);
+  /* background-image: url('../images/fondo-5.jpg'); */
+
   background-size: cover;
   height: 100vh;
   justify-content: center;
